@@ -11388,6 +11388,8 @@ bool ImGui::InputTextEx(const char* label, char* buf, int buf_size, const ImVec2
 
     if ((flags & ImGuiInputTextFlags_EnterReturnsTrue) != 0)
         return enter_pressed;
+    else if ((flags & ImGuiInputTextFlags_UserDoneReturnsTrue) != 0)
+        return value_changed && clear_active_id;
     else
         return value_changed;
 }
